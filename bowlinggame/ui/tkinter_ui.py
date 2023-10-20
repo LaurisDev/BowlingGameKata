@@ -39,6 +39,10 @@ class BowlingFrame(Frame):
     def activate(self):
         self.frame_label.config(bg="lightgreen")
 
+    def desactive(self):
+        self.frame_label.config(bg="lightgrey")
+
+
 class BowlingApp(CTk):
     def __init__(self, game: Game):
         super().__init__()
@@ -111,7 +115,7 @@ class BowlingApp(CTk):
         for frame in self.frames:
             frame.update_rolls("")
             frame.update_score("")
-            self.frames[0].activate()
+            frame.desactive()
 
     def add_roll(self):
         try:
