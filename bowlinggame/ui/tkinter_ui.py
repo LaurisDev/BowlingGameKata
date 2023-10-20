@@ -106,7 +106,12 @@ class BowlingApp(CTk):
         self.unbind("<Visibility>")
 
     def reset(self):
-        pass
+        self.add_roll_entry.delete(0, END)
+        self.game = Game()
+        for frame in self.frames:
+            frame.update_rolls("")
+            frame.update_score("")
+            self.frames[0].activate()
 
     def add_roll(self):
         try:
